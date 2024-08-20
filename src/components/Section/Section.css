@@ -1,0 +1,156 @@
+.sectionContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.contentRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.textContent {
+    max-width: 50%;
+}
+
+.mainHeading {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #0d3b66;
+}
+
+.subText {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.learnMoreBtn {
+    background-color: #0d3b66;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.image {
+    max-width: 45%;
+    border-radius: 0.5rem;
+}
+.diagonalCut {
+    position: relative;
+    padding-bottom: 50px;
+  }
+  .diagonalCut2 {
+    position: relative;
+    padding-bottom: 50px;
+  }
+  .diagonalCut2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65px; 
+    background: #0d3b66; 
+    clip-path: polygon(102% 100%, 0 0, 0 100%);
+  }
+  .diagonalCut::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65px; 
+    background: #0d3b66; 
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+  }
+  .bairro{
+    font-weight: bold;
+  }
+  .title{
+    color: #0d3b66;
+  }
+ 
+  .container-section {
+    width: 100%;
+    padding-top: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 200px;
+    padding-left: 600px;
+}
+
+.mySwiper {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+}
+
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.carouselItem {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+    width: 100%;
+    height: 100%;
+}
+
+.carouselImageContainer {
+    flex: 0 0 auto; 
+}
+
+.carouselImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}
+
+.carouselText {
+    flex: 1; 
+    padding-left: 80px;
+    max-width: 40%;
+}
+
+.carouselText h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #0d3b66;
+}
+
+.carouselText p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.button {
+    background-color: #0d3b66;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+}

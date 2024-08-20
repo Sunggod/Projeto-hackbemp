@@ -1,21 +1,93 @@
-import React from "react";
-import celphoto from "../../assets/imagem-cel.png";
+import React, { useState } from 'react';
+import celphoto from "../../assets/imgphone.png";
+import emprededor from "../../assets/emprededor.png";
+import empresario from "../../assets/empresario.png";
+import './Section.css';
+import logo from "../../assets/logo.png";
 
+import teste1 from "../../assets/teste1.jpeg";
+import teste2 from "../../assets/teste2.jpg";
+import teste3 from "../../assets/teste3.jpg";
+import bairroemprededor from "../../assets/bairro-emprededor.jpg"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCards } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-cards';
+const slides = [{
+      image: bairroemprededor,
+      title: "Bairro Emprendedor",
+      description: `O projeto Bairro Empreendedor é uma iniciativa da Prefeitura de Pelotas que visa fortalecer a economia local através da organização e valorização da comunidade e dos pequenos negócios`,
+    },
+    {
+      image: bairroemprededor,
+      title: "Bairro Emprendedor",
+      description: "O projeto Bairro Empreendedor é uma iniciativa da Prefeitura de Pelotas que visa fortalecer a economia local através da organização e valorização da comunidade e dos pequenos negócios",
+    },
+    {
+      image: bairroemprededor,
+      title: "Bairro Emprendedor",
+      description: "O projeto Bairro Empreendedor é uma iniciativa da Prefeitura de Pelotas que visa fortalecer a economia local através da organização e valorização da comunidade e dos pequenos negócios",
+    },
+  ];
+ 
 export default function Section() {
+    const [activeSlide, setActiveSlide] = useState(0);
     return (
-        <section className="flex flex-col justify-center items-center bg-white rounded-xl shadow-md">
-            <div className="text-center pt-16">
-                <h1 className="text-4xl">Bairro Empreendedor <br /> Fortalecendo o Comércio Local</h1>
-            </div>
-            <div className="flex justify-center items-center gap-20 mt-10">
-                <div className="flex justify-center items-center">
-                    <img src={celphoto} alt="Imagem de PNGTree" className="w-1/3"/>
+        <>
+        <section className="sectionContainer diagonalCut">
+            <div className="contentRow">
+                <div className="textContent">
+                    <h2 className="mainHeading">Descubra e apoie os negócios do seu bairro! </h2>
+                    <p className="subText">Aqui no <span className="bairro">Bairro Empreendedor</span>, damos visibilidade aos empreendimentos locais, conectando você diretamente com comerciantes e serviços da sua região.</p>
+                    <button className="button">Saiba mais</button>
                 </div>
-                <div className="flex justify-center items-center text-xl space-x-2 max-w-lg">
-                    <p>Descubra e apoie os negócios do seu bairro!<p/>
-                    Aqui no Bairro Empreendedor, damos visibilidade aos empreendimentos locais conectando você diretamente com comerciantes e serviços da sua região.</p>
+                <img src={celphoto} alt="Imagem de PNGTree" className="image" />
+            </div>
+        </section>
+        <section className="sectionContainer">
+            <div className="contentRow">
+            <img src={emprededor} alt="Imagem de PNGTree" className="image" />
+                <div className="textContent">
+                    <h2 className="mainHeading">Para Clientes!</h2>
+                    <p className="subText">Explore uma variedade de serviços e produtos próximos a você, promovendo o crescimento da economia local e ajudando a construir uma comunidade mais forte.</p>
+                    <button className="button">Saiba mais</button>
                 </div>
             </div>
         </section>
+        <section className="sectionContainer diagonalCut2">
+            <div className="contentRow">
+                <div className="textContent">
+                    <h2 className="mainHeading">Para Emprededores!</h2>
+                    <p className="subText">Explore uma variedade de serviços e produtos próximos a você, promovendo o crescimento da economia local e ajudando a construir uma comunidade mais forte.</p>
+                    <button className="button">Saiba mais</button>
+                </div>
+                <img src={empresario} alt="Imagem de PNGTree" className="image" />
+            </div>
+        </section>
+        <section className="container-section">
+            <div className="carousel-container">
+                <Swiper
+                effect="cards"
+                grabCursor={true}
+                modules={[EffectCards]}
+                className="mySwiper"
+                onSlideChange={(swiper) => setActiveSlide(swiper.activeIndex)}
+                >
+                {slides.map((slide, index) => (
+                    <SwiperSlide key={index}>
+                    <div className="carouselImageContainer">
+                        <img src={slide.image} alt={`Slide ${index + 1}`} className="carouselImage" />
+                    </div>
+                    </SwiperSlide>
+                ))}
+                </Swiper>
+            </div>
+            <div className="carouselText">
+                <h2>{slides[activeSlide].title}</h2>
+                <p>{slides[activeSlide].description}</p>
+                <button className="button">Saiba mais</button>
+            </div>
+        </section>
+        </>        
     );
 }
