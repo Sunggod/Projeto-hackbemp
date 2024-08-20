@@ -1,0 +1,28 @@
+{
+  "contas": [
+    {
+      "id": "eba7",
+      "firstName": "Vinicius",
+      "lastName": "Scheck",
+      "name": "Padaria ",
+      "cnpj": "52151",
+      "email": "jose@hotmail.com",
+      "address": "Centro Pelotas",
+      "cep": "3",
+      "url": "https://sgsistemas.com.br/wp-content/uploads/2023/08/tipos-de-comercio_arte-2_Pranche-1.webp",
+      "description": "teste de descrição "
+    },
+    {
+      "id": "a3f5",
+      "firstName": "Vinicius",
+      "lastName": "Scheck",
+      "name": "Padaria ",
+      "cnpj": "52151",
+      "email": "jose@hotmail.com",
+      "address": "Centro Pelotas",
+      "cep": "3",
+      "url": "https://sgsistemas.com.br/wp-content/uploads/2023/08/tipos-de-comercio_arte-2_Pranche-1.webp",
+      "description": "teste de descrição "
+    }
+  ]
+}

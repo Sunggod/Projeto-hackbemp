@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import celphoto from "../../assets/imgphone.png";
 import emprededor from "../../assets/emprededor.png";
 import empresario from "../../assets/empresario.png";
-import './Section.css';
-import logo from "../../assets/logo.png";
+import acompanhe from "../../assets/acompanhe.png";
+import comercios from "../../assets/comercios.png";
 
-import teste1 from "../../assets/teste1.jpeg";
-import teste2 from "../../assets/teste2.jpg";
-import teste3 from "../../assets/teste3.jpg";
+import './Section.css';
 import bairroemprededor from "../../assets/bairro-emprededor.jpg"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCards } from 'swiper/modules';
@@ -64,7 +62,11 @@ export default function Section() {
                 <img src={empresario} alt="Imagem de PNGTree" className="image" />
             </div>
         </section>
+        
         <section className="container-section">
+                <div>
+                    <img src={acompanhe} alt="Imagem de PNGTree" className="h-200" />
+                </div>
             <div className="carousel-container">
                 <Swiper
                 effect="cards"
@@ -83,6 +85,9 @@ export default function Section() {
                 </Swiper>
             </div>
             <div className="carouselText">
+                    <div className='container-title'>
+                        <img  src={comercios} alt=""/>
+                    </div>
                 <h2>{slides[activeSlide].title}</h2>
                 <p>{slides[activeSlide].description}</p>
                 <button className="button">Saiba mais</button>

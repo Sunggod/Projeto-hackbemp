@@ -12,7 +12,7 @@ export default function Header() {
           <FontAwesomeIcon icon={faHome} color="white" style={{ fontSize: '20px' }} />
           Página Inicial
         </Link>
-        <Link className="no-underline text-center text-white font-medium flex items-center gap-2  transform transition-transform duration-300 hover:scale-110" to="/">
+        <Link to="/Registro" className="no-underline text-center text-white font-medium flex items-center gap-2 transform transition-transform duration-300 hover:scale-110">
           <FontAwesomeIcon icon={faIdCard} color="white" style={{ fontSize: '20px' }} />
           Cadastro-Comercio
         </Link>
