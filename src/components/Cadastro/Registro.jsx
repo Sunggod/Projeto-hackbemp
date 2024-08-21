@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import logo from "../../assets/logo.png";
+import { Alert } from "@mui/material";
 
 export default function Registro() {
     const [formData, setFormData] = useState({
@@ -15,6 +15,9 @@ export default function Registro() {
         description: ''
     });
 
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(null);
+
     const handleChange = (e) => {
         const { id, value } = e.target;
         setFormData(prevData => ({
@@ -23,14 +26,45 @@ export default function Registro() {
         }));
     };
 
+    const validateForm = () => {
+        const { firstName, lastName, email, address, cep, url } = formData;
+        if (!firstName || !lastName || !email || !address || !cep || !url) {
+            return "Por favor, preencha todos os campos obrigatórios.";
+        }
+        if (!/^\d{5}-\d{3}$/.test(cep)) {
+            return "CEP deve estar no formato 12345-678.";
+        }
+        return null;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         
+        const validationError = validateForm();
+        if (validationError) {
+            setError(validationError);
+            setSuccess(null);
+            return;
+        }
+
         try {
             await axios.post("http://localhost:3000/contas", formData);
-            console.log("Cadastro realizado com sucesso!");
+            setSuccess("Cadastro realizado com sucesso!");
+            setError(null);
+            setFormData({
+                firstName: '',
+                lastName: '',
+                name: '',
+                cnpj: '',
+                email: '',
+                address: '',
+                cep: '',
+                url: '',
+                description: ''
+            });
         } catch (error) {
-            console.error("Erro ao cadastrar:", error);
+            setError("Erro ao cadastrar: " + error.message);
+            setSuccess(null);
         }
     };
 
@@ -38,6 +72,10 @@ export default function Registro() {
         <>
             <div className="max-w-md mx-auto bg-white dark:bg-gray-700 rounded-lg shadow-md p-6 mt-10 mb-10">
                 <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-200">Registre-se</h2>
+                
+                {error && <Alert severity="error">{error}</Alert>}
+                {success && <Alert severity="success">{success}</Alert>}
+                
                 <form onSubmit={handleSubmit}>
                     <div className="grid grid-cols-2 gap-4">
                         <div>
@@ -124,7 +162,7 @@ export default function Registro() {
                             CEP
                         </label>
                         <input
-                            type="number"
+                            type="text"
                             id="cep"
                             value={formData.cep}
                             onChange={handleChange}
