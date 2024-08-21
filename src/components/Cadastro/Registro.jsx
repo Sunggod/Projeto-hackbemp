@@ -50,6 +50,8 @@ export default function Registro() {
         try {
             await axios.post("http://localhost:3000/contas", formData);
             setSuccess("Cadastro realizado com sucesso!");
+            console.log(formData)
+            console.log(setFormData)
             setError(null);
             setFormData({
                 firstName: '',
